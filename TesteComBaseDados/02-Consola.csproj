@@ -7,8 +7,8 @@
     <ProjectGuid>{F0FA1266-054B-468B-A437-64F141D26EA1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TesteComBaseDados</RootNamespace>
-    <AssemblyName>TesteComBaseDados</AssemblyName>
+    <RootNamespace>Consola</RootNamespace>
+    <AssemblyName>02-Consola</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -50,9 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\ContextoBD.cs" />
-    <Compile Include="Modelo\InicializaBD.cs" />
-    <Compile Include="Modelo\Modelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,10 +57,16 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
+    <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01-DAL\01-DAL.csproj">
+      <Project>{c6a052f1-36bd-4a54-bf98-f68b9874bd73}</Project>
+      <Name>01-DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

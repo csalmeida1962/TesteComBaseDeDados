@@ -19,7 +19,7 @@ namespace Modelo
         {
             
             // Database.SetInitializer<ContextoBD>(new DropCreateBD());        // Elimina a BD e cria de novo
-            Database.SetInitializer<ContextoBD>(new CreateBDIfNotExist());    // Cria a BD se não Existe
+           // Database.SetInitializer<ContextoBD>(new CreateBDIfNotExist());    // Cria a BD se não Existe
             //Database.SetInitializer<ContextoBd>( new DropCreateIfChange()); // Drop e Create se houver change
             this.Configuration.ProxyCreationEnabled = false;
 

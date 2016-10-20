@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
-namespace TesteComBaseDados
+namespace Consola
 {
     class Program
     {
