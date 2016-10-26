@@ -48,14 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201610252234147_1 schema.cs" />
+    <Compile Include="Migrations\201610252234147_1 schema.Designer.cs">
+      <DependentUpon>201610252234147_1 schema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modelo\ContextoBD.cs" />
     <Compile Include="Modelo\InicializaBD.cs" />
+    <Compile Include="Modelo\InterfaceCategoria.cs" />
     <Compile Include="Modelo\Modelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610252234147_1 schema.resx">
+      <DependentUpon>201610252234147_1 schema.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

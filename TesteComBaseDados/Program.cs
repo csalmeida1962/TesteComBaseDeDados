@@ -13,8 +13,9 @@ namespace Consola
         static void Main(string[] args)
         {
             ContextoBD bd = new ContextoBD();
+            Console.WriteLine("Quantidade de Categorias : " + bd.Categorias.Count().ToString());
 
-            Console.WriteLine( bd.Produtos.Count().ToString());
+            Console.ReadLine();
         }
     }
 }

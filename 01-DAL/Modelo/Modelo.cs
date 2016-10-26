@@ -46,6 +46,8 @@ namespace Modelo
         [DisplayName("Descrição da Categoria")]
         public string Descricao { get; set; }
 
+        public byte[] Imagem { get; set; }
+
         [ScriptIgnore]
         public virtual IEnumerable<SubCategoria> SubCategorias { get; set; }
     }

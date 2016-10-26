@@ -11,20 +11,8 @@ namespace Modelo
     {
         protected override void Seed(ContextoBD bd)
         {
-            criarBaseDados(bd);
+            InicializaBD.criarRegistosIniciais(bd);   
             base.Seed(bd);
-        }
-
-        private void criarBaseDados(ContextoBD bd)
-        {
-            #region Empreagdo
-
-            // Emmpregados
-                Produto pro = new Produto();
-            pro.Descricao = "Produto 1";
-            #endregion
-
-            bd.SaveChanges();
         }
 
 
@@ -33,27 +21,40 @@ namespace Modelo
     {
         protected override void Seed(ContextoBD bd)
         {
-            criarBaseDados(bd);
+            InicializaBD.criarRegistosIniciais(bd);
             base.Seed(bd);
-        }
-        private void criarBaseDados(ContextoBD bd)
-        {
-            #region Empreagdo
-            // Emmpregados
-            Produto pro = new Produto();
-            pro.Descricao = "Produto 1";
-
-            // Emmpregados
-            //Empregado emp = new Empregado();
-            //emp.Nome = "Carlos ";
-            //emp.Perfil = "Admin";
-            #endregion
-
-            bd.SaveChanges();
         }
 
     }
     class DropCreateIfChange : DropCreateDatabaseIfModelChanges<ContextoBD>
     {
     }
+    public class InicializaBD
+    {
+        public static void criarRegistosIniciais(ContextoBD bd)
+        {
+            try
+            {
+
+                //Produto p = new Produto();
+                //p.Descricao = "Produto 1";
+                //p.PrVenda = 14.00M;
+                //bd.Produtos.Add(p);
+
+                Categoria c = new Categoria();
+                c.Descricao = "Descricao 1";
+                bd.Categorias.Add(c);
+                bd.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message.ToString());
+            }
+ 
+
+        }
+
+    }
 }
+

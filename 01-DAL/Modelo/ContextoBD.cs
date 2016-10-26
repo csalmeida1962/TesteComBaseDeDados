@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -17,11 +18,12 @@ namespace Modelo
 
         public ContextoBD()  : base("name=ContextoBD")
         {
-            
+
             // Database.SetInitializer<ContextoBD>(new DropCreateBD());        // Elimina a BD e cria de novo
-           // Database.SetInitializer<ContextoBD>(new CreateBDIfNotExist());    // Cria a BD se não Existe
+            // Database.SetInitializer<ContextoBD>(new CreateBDIfNotExist());    // Cria a BD se não Existe
             //Database.SetInitializer<ContextoBd>( new DropCreateIfChange()); // Drop e Create se houver change
-            this.Configuration.ProxyCreationEnabled = false;
+             this.Configuration.ProxyCreationEnabled = false;
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ContextoBD, Migrations.Configuration>("ContextoBD"));
 
         }
 
@@ -31,6 +33,23 @@ namespace Modelo
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
         }
+        //----------------------------------- Dependency injection --------------------------------//
+        public void MarkAsModified(Categoria item) //retira a dependência da tabela categoria
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
+        public void MarkAsModified(SubCategoria item) //retira a dependência da tabela Subcategoria
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
+        public void MarkAsModified(Produto item) //retira a dependência da tabela Produto
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
+        //-----------------------------------Fim de dependency injection --------------------------------//
 
     }
 
